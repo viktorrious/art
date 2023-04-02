@@ -1,0 +1,314 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    *{
+        margin: 3px;  
+        padding: 3px;
+        font-family: Arial;
+    }
+  header, footer {
+        color: rgb(14, 13, 13);
+        width: 100%;
+        margin: 5px auto;
+        padding: 5px;
+        background: rgb(235, 183, 73) }
+        header {
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            text-align: center;
+        }
+        header  button  {
+            width: 160px;
+            height: 40px;
+            margin-top: 10px;
+            background: rgb(255, 255, 255);
+            border: none;
+            border-radius: 20px;
+            color: rgb(0, 0, 0);
+            font-size: 14px;
+            font-weight: bold;
+            outline: none;
+        }
+        .wire-list{
+            margin-top: 0px;
+            width: 0px;
+            min-height: 200px;
+        }
+        .wire-list > span{
+            display: flex;
+    flex-direction: column;
+    align-items: center;/* выравнивание по центру */
+            margin-bottom: 1px; /* отступы снизу */
+        }
+        .one{width: 50%;}
+        .two{width: 50%;}
+        .three{ width: 50%;}
+        .four{ width: 50%;}
+        .five{ width: 50%;}
+        .wire-list > span > span{
+            margin-left: 1px; /* отступы слева */
+            font-size: 18px; /* размер шрифта */
+            font-weight: bold; /* жирный шрифт */
+        }
+        .wire-list > div{
+            width: 400px;/* ширина  */
+            display: grid; /* сетка */
+            grid-template-columns: 700px 700px 700px 700px ;/* деление на 4 секции  */
+            grid-row-gap: 20px; /* размер ширины линий*/
+            grid-column-gap: 0px;   /* расстояние (промежуток) между столбцами в макете сетки*/
+        }
+       
+        .wire-list img{
+            width: 665px; /* ширина изображения */
+        }
+       
+        .wire-list > div > span > p{
+            margin-top: 1px; /* отступы вверх */
+            text-align: center;/* выравнивание по центру */
+        }
+       
+        .wire-list > div > span{
+            border: 1px solid #424242;/*позволяет одновременно установить толщину, стиль и цвет границы вокруг элемента*/
+            padding-bottom: 1px; /* отступы внизу */
+            cursor: pointer; /*Устанавливает форму курсора, когда он находится в пределах элемента*/
+            transition: .3s; /*эффект перехода между двумя состояниями элемента*/
+        }
+       
+        .wire-list > div > span:hover{
+            border: 1px solid rgb(235, 183, 73);/*позволяет одновременно установить толщину, стиль и цвет границы вокруг элемента*/
+        }
+        .info{
+            margin-top: 50px;
+            width: 100%;
+            background-color: #494343;
+            color: white;
+            display: flex;
+            padding-bottom: 30px;
+            grid-template-columns: 1fr 1fr;
+        }
+        .overlay {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            visibility: hidden;
+            /* фон затемнения */
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            position: fixed; /* фиксированное поцизионирование */
+            cursor: default; /* тип курсара */
+            -webkit-transition: opacity .5s;
+            -moz-transition: opacity .5s;
+            -ms-transition: opacity .5s;
+            -o-transition: opacity .5s;
+            transition: opacity .5s;
+            }
+            .overlay:target {
+            visibility: visible;
+            opacity: 1;
+            }
+            .is-image {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display:block;
+            margin: 10%;
+            width: 100%;
+            height: auto;
+            /* скругление углов встроенных картинок */
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            border-radius: 4px;
+            }
+            /* встроенные элементы м-медиа, фреймы */
+            embed, iframe {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display:block;
+            margin: auto;
+            min-width: 320px;
+            max-width: 600px;
+            width: 100%;
+            }
+            .popup h1 { /* заголовок 1 */
+            color: #080808;
+            text-align: center;
+            text-shadow: 0 1px 3px rgba(0,0,0,.3);
+            font:24px 'Trebuchet MS', Helvetica, sans-serif;
+            font-weight: bold;
+            }
+            .popup h2 { /* заголовок 2 */
+            color: #080808;
+            text-align: center;
+            text-shadow: 0 1px 3px rgba(0,0,0,.3);
+            font:22px 'Trebuchet MS', Helvetica, sans-serif;
+            }
+            /*** Формируем стили модального окна ***/
+            .popup {
+            top: 0;
+            right: 0;
+            left: 0;
+            font-size: 14px;
+            z-index: 10;
+            display: block;
+            visibility: hidden;
+            margin: 0 auto;
+            width: 90%;
+            min-width: 320px;
+            max-width: 600px;
+            /* фиксированное позиционирование, окно стабильно при прокрутке */
+            position: fixed;
+            padding: 15px;
+            border: 1px solid #383838;
+            /* скругление углов */
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            border-radius: 4px;
+            background-color: #FFFFFF;
+            /* внешняя тень блока */
+            -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+            -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+            -ms-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+            -o-box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+            /* полная прозрачность окна, появление при клике */
+            opacity: 0;
+            /* эффект перехода (появление) */
+            -webkit-transition: all ease .5s;
+            -moz-transition: all ease .5s;
+            -ms-transition: all ease .5s;
+            -o-transition: all ease .5s;
+            transition: all ease .5s;
+            }
+            /* активируем появление окна и затемнение фона */
+            .overlay:target+.popup {
+            top: 20%; /* положение окна от верха страницы при появлении */
+            visibility: visible;
+            opacity: 1; /* убираем прозрачность */
+            }
+            /* формируем кнопку закрытия */
+            .close {
+            position: absolute;
+            top: -10px;
+            right: -10px;padding: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            border-radius: 15px;
+            background-color: rgba(61, 61, 61, 0.8);
+            -webkit-box-shadow: 0px 0px 10px #000;
+            -moz-box-shadow: 0px 0px 10px #000;
+            box-shadow: 0px 0px 10px #000;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            line-height: 20px;
+            /* задаём значения и эффект перехода при наведении */
+            -webkit-transition: all ease .8s;
+            -moz-transition: all ease .8s;
+            -ms-transition: all ease .8s;
+            -o-transition: all ease .8s;
+            transition: all ease .8s;
+            }
+            .close:before {
+            color: rgba(255, 255, 255, 0.9);
+            content: "X";
+            text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+            font-size: 12px;
+            }
+            .close:hover {
+            background-color: rgba(252, 20, 0, 0.8);
+            /* крутим кнопку при наведении */
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);    
+            }
+            /* опционально при добавлении вложений */
+            .popup p, .popup div {
+            margin-bottom: 10px;
+            }
+           
+           
+            /* button */
+           
+            .button {
+           
+              font-size: 20px;
+              color: white;
+              width: 270px;
+              text-decoration: none;
+              padding: 10px 5px;
+              border-radius: 10px;
+              -moz-border-radius: 10px;
+              -webkit-border-radius: 10px;
+              font-family: Helvetica, Arial, sans-serif;
+              transition: all 0.3s;
+              -moz-transition: all 0.3s;
+              -webkit-transition: all 0.3s;
+              cursor: pointer;
+           
+            }
+            .button-blue {
+              background-color: #0600FF;
+              }
+            .button:hover {
+              background-color: #5555ff;
+              box-shadow:0 0 10px 10px #b7b7ff inset;
+            }
+            .button:active {
+                background-color: #0000ff;
+                box-shadow:0 0 0 0 #ffffff;
+            }
+        .info > h1{
+            margin: 20px 0px;
+        }
+       
+        .info > div{
+            width: 1200px;
+        }
+       
+        .info > div > p{
+            font-size: 18px;
+        }
+       
+        .info > div > h2{
+            margin: 10px 0px;
+        }
+       
+        form input{
+            margin-top: 10px;
+            width: 250px;
+            height: 25px;
+            font-size: 16px;
+            padding-left: 5px;
+        }
+       
+        form button{
+            margin-top: 15px;
+            width: 260px;
+            height: 40px;
+            background-color: #00000000;
+            border: 1px solid white;
+            display: flex;  
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+        }
